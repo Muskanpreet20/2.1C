@@ -10,7 +10,10 @@
 <body>
   <div id="app">
     <h1>Things to do</h1>
-    <input v-model="newTodo" @keyup.enter="addTodo" placeholder="Add a new task">
+    <form @submit.prevent="addTodo">
+      <input v-model="newTodo" placeholder="Add a new task">
+      <button type="submit">Add</button>
+    </form>
     <ul>
       <li v-for="(todo, index) in todos" :key="index">
         <input type="checkbox" v-model="todo.completed">
